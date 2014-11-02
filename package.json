@@ -1,23 +1,22 @@
 {
-  "name": "roots",
-  "version": "7.0.2",
-  "author": "Ben Word <ben@benword.com>",
-  "homepage": "http://roots.io",
+  "name": "congroo",
+  "version": "0.0.1",
+  "author": "jossemarGT <hello@jossemargt.com>",
+  "homepage": "http://jossemargt.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/roots.git"
+    "url": "https://github.com/jossemarGT/congroo.git"
   },
   "bugs": {
-    "url": "https://github.com/roots/roots/issues"
+    "url": "https://github.com/jossemarGT/congroo/issues"
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+      "type": "GPLv2"
     }
   ],
   "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower install && grunt dev"
+    "postinstall": "bower install && grunt dev"
   },
   "engines": {
     "node": ">= 0.10.0"
