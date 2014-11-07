@@ -20,6 +20,7 @@ bower install
 grunt build
 grunt watch
 ```
+Don't forget to put `define('WP_ENV', 'development');` in the `wp-config.php` file.
 
 ### Available Grunt commands
 

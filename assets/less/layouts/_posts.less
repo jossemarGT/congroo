@@ -1,4 +1,56 @@
+.excerpt-header {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 560px;
+  //background-color: #000;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+
+    display: block;
+    width: 100%;
+    height: 40%;
+
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    #gradient > .vertical(rgba(255,255,255, 0); rgba(255,255,255, 1));
+    transform: translateY(100%);
+    transition: transform ease 0.5s;
+  }
+
+  &.modify:after {
+    transform: translateY(0);
+  }
+}
+
+.bg-img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 105%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  transition: transform ease 0.5s;
+}
+
+.modify {
+  .bg-img {
+    transform: translateY(-5%);
+  }
+}
+
 .hentry header { }
+.hentry .entry-title {
+  margin: 0;
+}
 .hentry time { }
 .hentry .byline { }
 .hentry .entry-content { }
