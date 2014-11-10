@@ -4,8 +4,13 @@ The wordpress base them for [jossemarGT website](http://jossemargt.com), build w
 
 You're free to use it.
 
-### Recommended plugins
-Install the [Soil](https://github.com/roots/soil) plugin to enable additional features:
+## Recommended plugins
+
+### [JSON API](https://wordpress.org/plugins/json-api/)
+Install and enable this plugin for **full functionality**. Yes, is a dependency.
+
+### [Soil](https://github.com/roots/soil)
+Install this plugin to enable *additional* features:
 
 * Root relative URLs
 * Nice search (`/search/query/`)
@@ -16,8 +21,6 @@ Install the [Soil](https://github.com/roots/soil) plugin to enable additional fe
 git clone https://github.com/jossemarGT/congroo.git
 cd congroo
 npm install
-bower install
-grunt build
 grunt watch
 ```
 Don't forget to put `define('WP_ENV', 'development');` in the `wp-config.php` file.
@@ -28,7 +31,7 @@ Don't forget to put `define('WP_ENV', 'development');` in the `wp-config.php` fi
 * `grunt watch` — Compile assets when file changes are made
 * `grunt build` — Create minified assets that are used on non-development environments
 
-## Any (dev) problem?
+### Any (dev) problem?
 Read the roots documentation:
 
 * [Roots 101](http://roots.io/roots-101/) — A guide to installing Roots, the files, and theme organization

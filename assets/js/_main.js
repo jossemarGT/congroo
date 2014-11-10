@@ -6,7 +6,7 @@
  * replace the dash with an underscore when adding it to the object below.
  *
  * .noConflict()
- * The routing is enclosed within an anonymous function so that you can 
+ * The routing is enclosed within an anonymous function so that you can
  * always reference jQuery with $, even when in .noConflict() mode.
  *
  * Google CDN, Latest jQuery
@@ -15,8 +15,9 @@
  * ======================================================================== */
 
 (function($) {
+  'use strict';
 
-// Use this variable to set up the common and page specific functions. If you 
+// Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Roots = {
   // All pages
@@ -26,9 +27,53 @@ var Roots = {
     }
   },
   // Home page
-  home: {
+  blog: {
     init: function() {
+      //TODO: Change this with localize script
+      var endpoint = 'api/get_post/';
+
       // JavaScript to be fired on the home page
+      $('.read-more').on('click', function(e){
+        var $this = $(this),
+            $parent = $this.parents('.post'),
+            $content = $('.entry-content', $parent) ;
+
+        if(!$parent.hasClass('content-loaded')){
+          $parent.addClass('loading');
+
+          $.ajax({
+            url: endpoint,
+            data: {id: $this.attr('data-post-id')},
+            dataType: 'json',
+          })
+          .done(function(data){
+            $content
+            .append(data.post.content)
+            .slideDown();
+
+            $.scrollTo($content, {duration: 700, offset:{top: -200}});
+          })
+          .fail(function(jqXHR, status){
+            cosole.log(status);
+          })
+          .always(function(jqXHR, status){
+            $parent
+            .removeClass('loading')
+            .addClass('active content-loaded');
+          });
+        } else {
+          $parent.toggleClass('active');
+          $content.slideToggle();
+
+          if( !$parent.hasClass('active') ) {
+            $.scrollTo($parent , {duration: 700});
+          } else {
+            $.scrollTo($content, {duration: 700, offset:{top: -200}});
+          }
+        }
+
+        e.preventDefault();
+      });
     }
   },
   // About us page, note the change from about-us to about_us.

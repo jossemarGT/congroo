@@ -10,9 +10,11 @@
         <span class="icon glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only"><?php _e('Share this post', 'roots'); ?></span>
       </a>
-      <a class="round-link read-more" href="<?php the_permalink(); ?>" title="<?php _e('Read more', 'roots'); ?>">
+      <a class="round-link read-more"
+        href="<?php the_permalink(); ?>"
+        data-post-id="<?php echo $post->ID; ?>"
+        title="<?php _e('Read more', 'roots'); ?>">
         <span class="icon glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only"><?php _e('Read more', 'roots'); ?></span>
       </a>
       <a class="round-link share-facebook" href="<?php the_permalink(); ?>" title="<?php _e('Tweet this post', 'roots'); ?>">
         <span class="icon glyphicon glyphicon-chevron-right"></span>
@@ -21,6 +23,8 @@
     </div>
   </header>
   <div class="entry-summary sr-only">
-    <?php the_excerpt(); ?>
+    <?php //the_excerpt(); ?>
+  </div>
+  <div class="entry-content container">
   </div>
 </article>

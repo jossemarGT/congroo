@@ -18,6 +18,14 @@
   }
 }
 
+/*
+.post-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out 0.1s;
+}
+*/
+
 .excerpt-header {
   width: 100%;
   height: 100%;
@@ -78,7 +86,7 @@
   }
 }
 
-.modify {
+.active {
   .bg-img {
     transform: translateY(-5%);
   }
@@ -93,11 +101,14 @@
     transform: translateY(0);
   }
 
+/*
+// Actually we don't need this
   &.light-bg {
     .entry-title, .entry-meta {
       color: @gray-lighter;
     }
   }
+*/
 
   &.dark-bg {
     .entry-title, .entry-meta {
@@ -105,8 +116,10 @@
     }
   }
 
-  .read-more .icon {
+  .read-more {
+    .icon {
     transform: rotate(-90deg);
+    }
   }
 
   .share-facebook {
@@ -116,11 +129,18 @@
   .share-twitter {
     opacity: 1;
   }
+
+/*
+  .post-content {
+    max-height: 100%;
+  }
+*/
 }
 
 .round-link {
   display: inline-block;
   margin-top: 10px;
+  outline: none;
 
   .icon {
     display: inline-block;
@@ -139,6 +159,12 @@
     //transform: translateX(-100%);
     opacity: 0;
   }
+
+/*
+  &:focus {
+    outline: thin dotted;
+  }
+*/
 }
 
 .read-more {
@@ -158,11 +184,20 @@
   }
 }
 
+.content-loaded {
+  .entry-content {
+      padding: 25px 0 40px;
+  }
+}
+
 .hentry header { }
 .hentry .entry-title {
   margin: 0;
 }
 .hentry time { }
 .hentry .byline { }
-.hentry .entry-content { }
+.hentry .entry-content {
+  font-size: 1.2em;
+  color: @gray-dark;
+}
 .hentry footer { }
